@@ -1,0 +1,2 @@
+name,date,value
+dolar,mayo 1,40000

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>HTMLeros - Divisas</title>
+
+  <!-- Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.css" rel="stylesheet">
+
+</head>
+
+<script>
+  window.onload = function () {
+    updatePage(dolar);
+  }
+</script>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <nav class="navbar">
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-gradient-primary topbar mb-4 static-top">
+            <button id="btnRoy" class="btn btn-dark bg-jhonier" type="button" style="margin:5px"
+              onclick="location.href='index.html'">
+              Divisas
+            </button>
+            <button id="btnRoy" class="btn btn-dark bg-jhonier" type="button" style="margin: 5px"
+              onclick="location.href='acciones.html'">
+              Acciones
+            </button>
+            <button id="btnRoy" class="btn btn-dark bg-jhonier" type="button" style="margin:5px"
+              onclick="location.href='blank.html'">
+              Quienes somos
+            </button>
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+              <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+              <li>
+                <a>
+                  <h2 style="color: #ff5500">HTMLEROS<span>°</span></h2>
+                </a>
+              </li>
+            </ul>
+
+            </ul>
+
+          </nav>
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="row">
+            <div class="d-flex d-sm-flex align-content-md-center justify-content-between mb-4"></div>
+            <h1 class="h3 mb-0 text-gray-800">Divisas
+              <div class="d-flex justify-content-between">
+                <script>
+                  function updatePage(accion) {
+                    var name = accion.getName();
+                    changeChartValuesClass(myLineChart, accion);
+                    chartTitle.innerText = 'Historico del ' + name;
+                    listaHistorica.innerText = writeList(accion);
+                    rotulo.innerText = name;
+                    inputDivisas.placeholder = name;
+                    inputPesos.placeholder = "Pesos";
+                    inputDivisas.accionMostrar = accion;
+                    inputPesos.accionMostrar = accion;
+                    inputPesos.value = "";
+                    inputDivisas.value = "";
+                  }
+                </script>
+                <a type="button"
+                  class="bg-secondary btn card col-x1-3 border-success align-items-lg-end text-white-50 marginbtn btn-BIG"
+                  onclick="updatePage(dolar)">Dolar</a>
+                <a type="button"
+                  class="bg-secondary btn card col-x1-3 border-success align-items-lg-end text-white-50 marginbtn btn-BIG"
+                  onclick="updatePage(euro)">Euro</a>
+                <a type="button"
+                  class="bg-secondary btn card col-x1-3 border-success align-items-lg-end text-white-50 marginbtn btn-BIG"
+                  onclick="updatePage(yen)">Yen</a>
+                <a type="button"
+                  class="bg-secondary btn card col-x1-3 border-success align-items-lg-end text-white-50 marginbtn btn-BIG"
+                  onclick="updatePage(yuan)">Yuan</a>
+                <a type="button"
+                  class="bg-secondary btn card col-x1-3 border-success align-items-lg-end text-white-50 marginbtn btn-BIG"
+                  onclick="updatePage(rublo)">Rublo</a>
+              </div>
+            </h1>
+          </div>
+        </div>
+
+        <div class="navbar"></div>
+
+        <!-- Content Row -->
+        <div class="row">
+
+          <!-- Area Chart -->
+          <div class="col-xl-8 col-lg-7">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary" id="chartTitle">Historico de Precio</h6>
+                <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                    aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#"
+                      onclick="changeChartValues(myLineChart,'Dolar', ['Puto', 'El', 'Que', 'Lo', 'Lea'], [10,20,50,60,31])">
+                      Cambiar Valores</a>
+                    <a class="dropdown-item" href="#"
+                      onclick="changeChartValuesClass(myLineChart, dolar);chartTitle.innerText = 'Historico del Dolar'">Dolar</a>
+                    <a class="dropdown-item" href="#"
+                      onclick="changeChartValuesClass(myLineChart, euro);chartTitle.innerText = 'Historico del Euro'">Euro</a>
+                  </div>
+                </div>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <div class="chart-area">
+                  <canvas id="myAreaChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lista historica -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+              <!-- Lista Historica - Dropdown DELETED -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Historico de Divisa</h6>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <h6 id="listaHistorica">Selecciona una Divisa</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Content Row -->
+        <div class="row">
+
+          <!-- Convertidor -->
+          <div class="col-xl-5 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Convertidor</div>
+                    <p>
+                      <label>Pesos</label>
+                      <input id="inputPesos" type="number" placeholder="Pesos"
+                        oninput="pesosADivisas(this.value, accionMostrar)"
+                        onchange="pesosADivisas(this.value, accionMostrar)">
+                    </p>
+                    <p>
+                      <label id="rotulo">Selecciona una divisa</label>
+                      <input id="inputDivisas" type="number" placeholder="Divisa"
+                        oninput="divisasAPesos(this.value, accionMostrar)"
+                        onchange="divisasAPesos(this.value, accionMostrar)">
+                    </p>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white bg-gradient-primary">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <p style="color: #000">Copyright &copy; HTMLEROS 2020</p>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="404.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="js/demo/updateCharts.js"></script>
+    <script src="conversor.js"></script>
+
+</body>
+
+</html>
