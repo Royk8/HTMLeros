@@ -43,6 +43,7 @@
     $('html, body').stop().animate({
       scrollTop: ($($anchor.attr('href')).offset().top)
     }, 1000, 'easeInOutExpo');
+    console.log("HAHA");
     e.preventDefault();
   });
 
